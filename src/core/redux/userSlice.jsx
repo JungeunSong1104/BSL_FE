@@ -47,6 +47,18 @@ export const logInApi = createAsyncThunk(
   },
 );
 
+export const testApi = createAsyncThunk(
+  'user/login',
+  async (data, thunkAPI) => {
+    try {
+      const response = await userAPI.test(data);
+      thunkAPI.dispatch(userSlice.actions.setTestMessage(response.data));
+    } catch (error) {
+      console.log('logInApi : error response', error.response.data);
+    }
+  },
+);
+
 export const userSlice = createSlice({
   name: 'userReducer',
   initialState,
@@ -61,5 +73,9 @@ export const userSlice = createSlice({
       state.emailCheck = action.payload;
       return;
     },
+    setTestMessage: (state, action) => {
+      state.message=action.payload;
+      return;
+    }
   },
 });

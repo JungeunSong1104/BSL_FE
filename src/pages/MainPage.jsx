@@ -1,11 +1,26 @@
 import React from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import { userAPI } from "../core/api";
+import { useDispatch, useSelector } from "react-redux";
+import { testApi } from "../core/redux/userSlice";
 
 const MainPage = (props) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const message = useSelector( state => state.user.message);
+  
+  React.useEffect(() => {
+    dispatch(testApi(''));
+  }, [])
+
   return (
     <div>
+      <div>
+        <h3>react page</h3>
+        <p>{message}</p>
+      </div>
+
       <CatalogBtn onClick={() => navigate("/compcat")}>
         컴포넌트
         <br />

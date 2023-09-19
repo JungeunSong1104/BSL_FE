@@ -1,19 +1,7 @@
 import { Route } from "react-router-dom";
 import { Routes } from "react-router-dom";
-import MainPage from "./pages/MainPage";
-import CompCatalog from "./pages/CompCatalog";
 import { v4 } from "uuid";
-
-const routeList = [
-  {
-    path: "/",
-    element: MainPage,
-  },
-  {
-    path: "/compcat",
-    element: CompCatalog,
-  },
-];
+import routeList from "./rootRouters";
 
 const Root = () => {
 

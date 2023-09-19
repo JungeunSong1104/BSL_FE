@@ -13,7 +13,6 @@ export const signUp = (options) =>
     ...options,
   });
 
-
   // 로그인
 export const logIn = (options) =>
   instance({
@@ -21,3 +20,11 @@ export const logIn = (options) =>
     url: addPrefix(`/login`),
     ...options,
   });
+
+
+export const test = (options) =>
+  instance({
+    method: 'GET',
+    url: 'http://localhost:8080/book/',
+    ...options,
+  })
