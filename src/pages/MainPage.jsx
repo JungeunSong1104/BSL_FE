@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { userAPI } from "../core/api";
 import { useDispatch, useSelector } from "react-redux";
 import { testApi } from "../core/redux/userSlice";
+import MainPageTemplate from "../components/main/MainPageTemplate";
 
 const MainPage = (props) => {
   const navigate = useNavigate();
@@ -16,10 +16,7 @@ const MainPage = (props) => {
 
   return (
     <div>
-      <div>
-        <h3>react page</h3>
-        <p>{message}</p>
-      </div>
+      <MainPageTemplate />
 
       <CatalogBtn onClick={() => navigate("/compcat")}>
         컴포넌트
